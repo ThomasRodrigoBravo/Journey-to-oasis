@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://bcffsabt0j5te"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11h0k"]
+bg_color = Color(0.39215687, 0.10980392, 0.14117648, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.42745098, 0.16078432, 0.19607843, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q42a5"]
+bg_color = Color(0.5647059, 0.023529412, 0.003921569, 1)
+border_color = Color(0.0076186024, 0.0076186024, 0.0076186024, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ykfui"]
+bg_color = Color(0.5294118, 0.023529412, 0.003921569, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.42745098, 0.16078432, 0.19607843, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Materials" type="Button"]
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.9595163, 0.9595163, 0.9595163, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.011203093, 0.011203093, 0.011203093, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_11h0k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_q42a5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ykfui")
+text = "Materials"

@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccgcb1w66k3sl"]
+
+[ext_resource type="Script" uid="uid://buwlj7mtitst7" path="res://SellItemScript.cs" id="1_ufaoq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scplt"]
+bg_color = Color(0.12941177, 0.05882353, 0.21568628, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.15686275, 0.078431375, 0.23529412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmonf"]
+bg_color = Color(0.004019165, 0.004019165, 0.004019165, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhtyf"]
+bg_color = Color(1, 0.34901962, 0.24313726, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gh48"]
+bg_color = Color(0.83137256, 0.1254902, 0.14901961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.05308867, 0.060899954, 0.019438157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_be3u3"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3ma7"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0076186024, 0.0076186024, 0.0076186024, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Stonebox1" type="VBoxContainer" node_paths=PackedStringArray("sellAmountLabel", "sellCostLabel")]
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_ufaoq")
+sellAmountLabel = NodePath("HBoxContainer/AmountOfRecNumber")
+sellCostLabel = NodePath("HBoxContainer/cost")
+
+[node name="Stone" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_scplt")
+text = "-Wood-"
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="addButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jmonf")
+text = "+"
+
+[node name="subtractButton2" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+focus_mode = 0
+text = "-"
+
+[node name="AmountOfRecText" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "Amount:"
+
+[node name="AmountOfRecNumber" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_qhtyf")
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_qhtyf")
+text = " "
+
+[node name="Costtext" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "SellCost:"
+
+[node name="cost" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+
+[node name="SellButton" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+theme_override_colors/font_hover_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gh48")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_be3u3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t3ma7")
+text = "SELL"
+
+[connection signal="pressed" from="HBoxContainer/addButton" to="." method="OnPlusPressed"]
+[connection signal="pressed" from="HBoxContainer/subtractButton2" to="." method="sellOnMinusPressed"]
+[connection signal="pressed" from="SellButton" to="." method="SellMatrial"]

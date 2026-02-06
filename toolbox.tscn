@@ -1,0 +1,166 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnnhxgksqs6wp"]
+
+[ext_resource type="Script" uid="uid://2moewu6auuj0" path="res://BuyItemScript.cs" id="1_l8cl3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scplt"]
+bg_color = Color(0.6784314, 0.64705884, 0.5294118, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.028310267, 0.03374103, 0.0011252954, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmonf"]
+bg_color = Color(0.004019165, 0.004019165, 0.004019165, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qhtyf"]
+bg_color = Color(1, 0.34901962, 0.24313726, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8cl3"]
+bg_color = Color(0.50980395, 0.52156866, 0.7294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4gh48"]
+bg_color = Color(0.35667625, 0.6981013, 0.1492702, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.05308867, 0.060899954, 0.019438157, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_be3u3"]
+bg_color = Color(0.35686275, 0.84313726, 0.14901961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.35686275, 0.84313726, 0.14901961, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3ma7"]
+bg_color = Color(0.35686275, 0.84313726, 0.14901961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0076186024, 0.0076186024, 0.0076186024, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="Stonebox" type="VBoxContainer" node_paths=PackedStringArray("AmountLabel", "CostLabel")]
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_l8cl3")
+AmountLabel = NodePath("Buymath/AmountOfRecnumber")
+CostLabel = NodePath("Buymath/price")
+
+[node name="Stone" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_scplt")
+text = "-Stone-"
+vertical_alignment = 1
+
+[node name="Buymath" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="Buymath"]
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jmonf")
+text = "+"
+
+[node name="SubtractButton" type="Button" parent="Buymath"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+focus_mode = 0
+text = "-"
+
+[node name="AmountOfRecText" type="Label" parent="Buymath"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "Amount:"
+
+[node name="AmountOfRecnumber" type="Label" parent="Buymath"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_qhtyf")
+text = "1"
+
+[node name="Label2" type="Label" parent="Buymath"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_qhtyf")
+text = " "
+
+[node name="Cost" type="Label" parent="Buymath"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 19
+text = "BuyCost:"
+
+[node name="price" type="Label" parent="Buymath"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "0"
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8cl3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+text = "Durability:"
+
+[node name="Label2" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="BuyButton" type="Button" parent="."]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+theme_override_colors/font_hover_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_4gh48")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_be3u3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t3ma7")
+text = "BUY"
+
+[connection signal="pressed" from="Buymath/AddButton" to="." method="OnPlusPressed"]
+[connection signal="pressed" from="Buymath/SubtractButton" to="." method="OnMinusPressed"]
