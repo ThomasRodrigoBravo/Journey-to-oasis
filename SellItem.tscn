@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccgcb1w66k3sl"]
+[gd_scene format=3 uid="uid://ccgcb1w66k3sl"]
 
 [ext_resource type="Script" uid="uid://buwlj7mtitst7" path="res://SellItemScript.cs" id="1_ufaoq"]
 
@@ -65,14 +65,14 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="Stonebox1" type="VBoxContainer" node_paths=PackedStringArray("sellAmountLabel", "sellCostLabel")]
+[node name="Stonebox1" type="VBoxContainer" unique_id=406839906 node_paths=PackedStringArray("sellAmountLabel", "sellCostLabel")]
 size_flags_horizontal = 3
 size_flags_vertical = 0
 script = ExtResource("1_ufaoq")
 sellAmountLabel = NodePath("HBoxContainer/AmountOfRecNumber")
 sellCostLabel = NodePath("HBoxContainer/cost")
 
-[node name="Stone" type="Label" parent="."]
+[node name="Stone" type="Label" parent="." unique_id=962420514]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -81,49 +81,49 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_scplt")
 text = "-Wood-"
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2144893272]
 layout_mode = 2
 
-[node name="addButton" type="Button" parent="HBoxContainer"]
+[node name="addButton" type="Button" parent="HBoxContainer" unique_id=1237994473]
 layout_mode = 2
 focus_mode = 0
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jmonf")
 text = "+"
 
-[node name="subtractButton2" type="Button" parent="HBoxContainer"]
+[node name="subtractButton2" type="Button" parent="HBoxContainer" unique_id=784394603]
 custom_minimum_size = Vector2(18, 0)
 layout_mode = 2
 focus_mode = 0
 text = "-"
 
-[node name="AmountOfRecText" type="Label" parent="HBoxContainer"]
+[node name="AmountOfRecText" type="Label" parent="HBoxContainer" unique_id=753112067]
 layout_mode = 2
 theme_override_font_sizes/font_size = 19
 text = "Amount:"
 
-[node name="AmountOfRecNumber" type="Label" parent="HBoxContainer"]
+[node name="AmountOfRecNumber" type="Label" parent="HBoxContainer" unique_id=591685209]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_qhtyf")
 
-[node name="Label2" type="Label" parent="HBoxContainer"]
+[node name="Label2" type="Label" parent="HBoxContainer" unique_id=1226208719]
 layout_mode = 2
 size_flags_horizontal = 10
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxFlat_qhtyf")
 text = " "
 
-[node name="Costtext" type="Label" parent="HBoxContainer"]
+[node name="Costtext" type="Label" parent="HBoxContainer" unique_id=1996612018]
 layout_mode = 2
 theme_override_font_sizes/font_size = 19
 text = "SellCost:"
 
-[node name="cost" type="Label" parent="HBoxContainer"]
+[node name="cost" type="Label" parent="HBoxContainer" unique_id=1951661200]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 
-[node name="SellButton" type="Button" parent="."]
+[node name="SellButton" type="Button" parent="." unique_id=1378994833]
 layout_mode = 2
 focus_mode = 0
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
