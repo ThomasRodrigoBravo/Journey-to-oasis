@@ -3,12 +3,12 @@ using System;
 
 public partial class ExitButtonScript : Panel
 {
-	[Export] public Control ShopMaterialTab;
-	
-	private bool shouldShow = true;
-	public void ToggleShop ()
+	[Export] public Control ShopMaterialTabOpen;
+	[Export] public Control OptionsShopOpen;
+	public void ToggleShopClose()
 	{
-			ShopMaterialTab.Visible = false;
-			ShopMaterialTab.ProcessMode = ProcessModeEnum.Disabled;		
+		ShopMaterialTabOpen.Visible = !ShopMaterialTabOpen.Visible;
+		OptionsShopOpen.Visible = !OptionsShopOpen.Visible;
 	}
+	
 }

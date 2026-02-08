@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://bn8qg33hooaxv"]
+[gd_scene format=4 uid="uid://b3rnf12ngmb4a"]
 
 [ext_resource type="Texture2D" uid="uid://bkjp386h7hda5" path="res://sprites/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetElement.png" id="1_lp540"]
 [ext_resource type="Script" uid="uid://bn2ihfq6ary0h" path="res://GameTab.cs" id="2_o1saf"]
@@ -11411,6 +11411,9 @@ animations = [{
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fj2a7"]
 bg_color = Color(0.004019165, 0.004019165, 0.004019165, 0.8666667)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eu7bp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="Scene" type="Control" unique_id=1507336521]
 z_index = 2
 y_sort_enabled = true
@@ -11760,6 +11763,8 @@ tile_set = SubResource("TileSet_r2o0n")
 
 [node name="ActionsPanel" type="Panel" parent="." unique_id=534322610]
 visible = false
+z_index = 5
+y_sort_enabled = true
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -11797,6 +11802,8 @@ text = "Armor"
 
 [node name="Materails" type="Panel" parent="." unique_id=1816769987]
 visible = false
+z_index = 5
+y_sort_enabled = true
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.5
@@ -11929,14 +11936,15 @@ text = "-Copper-"
 [node name="cost" parent="Materails/Panel2/seller2/CopperboxSell4/HBoxContainer" parent_id_path=PackedInt32Array(1903449647, 2144893272) index="6" unique_id=1951661200]
 text = "5"
 
-[node name="Exitbutton" type="Panel" parent="Materails" unique_id=996035779 node_paths=PackedStringArray("ShopMaterialTab")]
+[node name="Exitbutton" type="Panel" parent="Materails" unique_id=996035779 node_paths=PackedStringArray("ShopMaterialTabOpen", "OptionsShopOpen")]
 layout_mode = 0
 offset_left = 1073.0
 offset_top = 13.0
 offset_right = 1102.0
 offset_bottom = 42.0
 script = ExtResource("6_xbt1c")
-ShopMaterialTab = NodePath("..")
+ShopMaterialTabOpen = NodePath("..")
+OptionsShopOpen = NodePath("../../ActionsPanel")
 
 [node name="exitButton" type="Button" parent="Materails/Exitbutton" unique_id=2072960944]
 layout_mode = 1
@@ -12053,15 +12061,10 @@ layout_mode = 2
 [node name="Stonebox4" parent="Tools/Panel2/seller" unique_id=240879282 instance=ExtResource("5_ouhbn")]
 layout_mode = 2
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=418454682]
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=418454682 node_paths=PackedStringArray("ShopMaterialTabOpen", "OptionsShopOpen")]
 script = ExtResource("16_fj2a7")
-
-[node name="TextureButton" type="TextureButton" parent="StaticBody2D" unique_id=2063825089]
-offset_left = 95.0
-offset_top = 191.0
-offset_right = 141.0
-offset_bottom = 248.0
-mouse_filter = 2
+ShopMaterialTabOpen = NodePath("../Materails")
+OptionsShopOpen = NodePath("../ActionsPanel")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StaticBody2D" unique_id=765189814]
 position = Vector2(117, 219)
@@ -12082,6 +12085,13 @@ offset_right = 659.0
 offset_bottom = 174.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_fj2a7")
 
+[node name="Button" type="Button" parent="StaticBody2D" unique_id=2072987061]
+offset_left = 96.0
+offset_top = 194.0
+offset_right = 139.0
+offset_bottom = 244.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_eu7bp")
+
 [connection signal="pressed" from="Materails/Panel/seller/StoneboxBuy/Buymath/AddButton" to="Materails/Panel/seller/StoneboxBuy" method="buyOnPlusPressed"]
 [connection signal="pressed" from="Materails/Panel/seller/StoneboxBuy/Buymath/SubtractButton" to="Materails/Panel/seller/StoneboxBuy" method="buyOnMinusPressed"]
 [connection signal="pressed" from="Materails/Panel/seller/WoodboxBuy2/Buymath/AddButton" to="Materails/Panel/seller/WoodboxBuy2" method="buyOnPlusPressed"]
@@ -12094,6 +12104,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_fj2a7")
 [connection signal="pressed" from="Materails/Panel2/seller2/WoodboxSell2/HBoxContainer/addButton" to="Materails/Panel2/seller2/WoodboxSell2" method="sellOnPlusPressed"]
 [connection signal="pressed" from="Materails/Panel2/seller2/IronboxSell3/HBoxContainer/addButton" to="Materails/Panel2/seller2/IronboxSell3" method="sellOnPlusPressed"]
 [connection signal="pressed" from="Materails/Panel2/seller2/CopperboxSell4/HBoxContainer/addButton" to="Materails/Panel2/seller2/CopperboxSell4" method="sellOnPlusPressed"]
+[connection signal="pressed" from="Materails/Exitbutton/exitButton" to="Materails/Exitbutton" method="ToggleShopClose"]
+[connection signal="pressed" from="StaticBody2D/Button" to="Materails/Exitbutton" method="ToggleShopClose"]
 
 [editable path="Materails/Panel/seller/StoneboxBuy"]
 [editable path="Materails/Panel/seller/WoodboxBuy2"]

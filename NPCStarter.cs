@@ -1,10 +1,12 @@
 using Godot;
 using System;
 
-public partial class NPCBasic : Node
+public partial class NPCStarter : Node
 {
 
 private AnimatedSprite2D animatedPlayerSprite;
+[Export] public Control ShopMaterialTabOpen;
+[Export] public Control OptionsShopOpen;
 
 public override void _Ready()
 {
@@ -15,11 +17,10 @@ public override void _Ready()
 	
 }
 public override void _Process(double delta)
-{
-	while(true)
-	{
-			animatedPlayerSprite.Play("Idle_healing");
-	}
+{				animatedPlayerSprite.Play("Idle_healing");
 }
+	
+	
+	
 
 }
