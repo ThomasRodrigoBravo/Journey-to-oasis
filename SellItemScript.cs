@@ -9,7 +9,8 @@ public partial class SellItemScript : VBoxContainer
 	private int sellCost;
 	[Export] public Label sellAmountLabel;
 	[Export] public Label sellCostLabel;
-	 	public override void _Ready()
+	
+	public override void _Ready()
 	{
 		sellUpdateUI();
 		sellAmountLabel.Text = $"{sellAmount}";
@@ -19,7 +20,7 @@ public partial class SellItemScript : VBoxContainer
 	public void sellOnPlusPressed()
 	{
 		sellAmount++;
-		sellCost = sellAmount * sellPrice; 
+		sellCost = sellAmount * sellPrice;
 		sellUpdateUI();
 	}
 	
